@@ -1,2 +1,1 @@
-web: python ./thebestory/application.py
-
+web: python boot.py
