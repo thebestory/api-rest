@@ -25,13 +25,13 @@ def boot():
 
     parsed = urllib.parse.urlparse(url)
 
-    app.db.HOST = parsed.hostname
-    app.db.PORT = parsed.port
-    app.db.USER = parsed.username
-    app.db.PASSWORD = parsed.password
-    app.db.DATABASE = parsed.path[1:]
+    config.db.HOST = parsed.hostname
+    config.db.PORT = parsed.port
+    config.db.USER = parsed.username
+    config.db.PASSWORD = parsed.password
+    config.db.DATABASE = parsed.path[1:]
 
-    app.db.SEED = True if seed == "True" else False
+    config.db.SEED = True if seed == "True" else False
 
     app.run()
 
