@@ -6,24 +6,32 @@ import os
 import urllib.parse
 
 from thebestory.application import app
-from thebestory.config import db
+from thebestory import config
 
 
 def boot():
-    db_url = os.environ.get('DATABASE_URL')
+    port = os.environ.get("PORT")
 
-    if db_url is None:
+    if port is None:
+        raise ValueError("App PORT must be provided by environment")
+
+    config.app.PORT = port
+
+    url = os.environ.get("DATABASE_URL")
+    seed = os.environ.get("SEED")
+
+    if url is None:
         raise ValueError("Database URL must be provided by environment")
 
-    db_parsed_url = urllib.parse.urlparse(db_url)
+    parsed = urllib.parse.urlparse(url)
 
-    db.HOST = db_parsed_url.hostname
-    db.PORT = db_parsed_url.port
-    db.USER = db_parsed_url.username
-    db.PASSWORD = db_parsed_url.password
-    db.DATABASE = db_parsed_url.path[1:]
+    app.db.HOST = parsed.hostname
+    app.db.PORT = parsed.port
+    app.db.USER = parsed.username
+    app.db.PASSWORD = parsed.password
+    app.db.DATABASE = parsed.path[1:]
 
-    db.SEED = True
+    app.db.SEED = True if seed == "True" else False
 
     app.run()
 
