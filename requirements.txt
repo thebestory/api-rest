@@ -2,4 +2,4 @@ aiohttp==1.1.5
 asyncpg==0.7.0
 asyncpgsa==0.7.0
 pytz==2016.7
-sqlalchemy
+sqlalchemy==1.1.4
