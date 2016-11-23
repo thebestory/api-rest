@@ -1,5 +1,5 @@
 aiohttp==1.1.5
 asyncpg
-asyncpgsa
+asyncpgsa==0.7.0
 pytz
 sqlalchemy
