@@ -1,4 +1,4 @@
-aiohttp==1.2.0
+aiohttp==1.3.2
 asyncpg==0.7.0
 asyncpgsa==0.7.0
 pendulum==0.7.0
