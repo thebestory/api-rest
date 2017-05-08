@@ -1,2 +1,2 @@
-asynctest
+asynctest==0.10.0
 pytest-asyncio
