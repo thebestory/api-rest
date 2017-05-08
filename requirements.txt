@@ -1,4 +1,4 @@
-sanic
+sanic==0.5.2
 asyncpg
 sqlalchemy
 asyncpgsa
